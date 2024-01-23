@@ -4,28 +4,12 @@ import { motion } from 'framer-motion';
 
 const maskStyles = 'overflow-hidden relative';
 const textStyles =
-  'absolute left-[50%] font-bold text-2xl m-0 translate-x-[-50%] translate-y-[-50%] text-white';
+  'absolute left-[50%] font-bold text-2xl m-0 translate-x-[-50%] translate-y-[-50%] text-white z-10';
 
 const parentAnimation = {
-  initial: { height: 0 },
   end: {
-    height: '80vh',
     transition: {
-      duration: 2,
-      when: 'beforeChildren',
-      staggerChildren: 0.1,
-    },
-  },
-};
-
-const wrapperAnimation = {
-  initial: { height: 0 },
-  end: {
-    height: 'auto',
-    transition: {
-      duration: 1,
-      when: 'beforeChildren',
-      staggerChildren: 1,
+      staggerChildren: 0.3,
     },
   },
 };
@@ -37,16 +21,19 @@ const textAnimation = {
     top: '50%',
     transition: {
       duration: 1,
+      delay: 3,
     },
   },
 };
 
 const imageAnimation = {
-  initial: { scale: 1 },
+  initial: { scale: 1, y: '-100vh' },
   end: {
+    y: 0,
     scale: 1.3,
     transition: {
-      duration: 1,
+      y: { duration: 1 },
+      scale: { duration: 1, delay: 1 },
     },
   },
 };
@@ -60,23 +47,16 @@ const items = [
 export default function About() {
   return (
     <div className="h-screen grid items-center justify-center">
-      <motion.div
-        className="flex justify-between gap-4"
+      <motion.section
+        className="flex justify-between gap-4 h-[80vh]"
         variants={parentAnimation}
         initial="initial"
         animate="end"
       >
         {items.map((item, index) => {
           return (
-            <motion.div
-              className={maskStyles}
-              variants={wrapperAnimation}
-              key={index}
-            >
-              <motion.div variants={imageAnimation}>
-                <motion.p className={textStyles} variants={textAnimation}>
-                  {item.text}
-                </motion.p>
+            <div className={maskStyles} key={index}>
+              <motion.div variants={imageAnimation} className="relative">
                 <Image
                   src={item.img}
                   alt="Abstract image"
@@ -84,10 +64,13 @@ export default function About() {
                   height={600}
                 />
               </motion.div>
-            </motion.div>
+              <motion.p className={textStyles} variants={textAnimation}>
+                {item.text}
+              </motion.p>
+            </div>
           );
         })}
-      </motion.div>
+      </motion.section>
     </div>
   );
 }
