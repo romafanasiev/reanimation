@@ -1,9 +1,9 @@
 'use client';
 import { motion } from 'framer-motion';
 
-export default function About() {
+export default function Task2() {
   return (
-    <div className="h-screen">
+    <div className="h-screen bg-black">
       <motion.div
         initial={{ width: '0', height: '3px', top: '50%' }}
         animate={{ width: '100vw', height: '100%', top: '0' }}

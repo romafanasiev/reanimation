@@ -2,7 +2,7 @@
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 
-export default function About() {
+export default function Task4() {
   return (
     <div className="h-screen bg-[#0F987F] flex flex-col items-center justify-center text-white">
       <motion.div

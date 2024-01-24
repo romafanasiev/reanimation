@@ -44,7 +44,7 @@ const items = [
   { text: 'abstraction', img: '/images/img3.jpg' },
 ];
 
-export default function About() {
+export default function Task3() {
   return (
     <div className="h-screen grid items-center justify-center">
       <motion.section

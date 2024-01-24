@@ -25,7 +25,7 @@ const textVars = {
   },
 };
 
-export default function About() {
+export default function Task1() {
   return (
     <div className="h-screen flex bg-[#F0F6CE] text-[#F0F6CE] justify-center align-center items-center">
       <motion.div
