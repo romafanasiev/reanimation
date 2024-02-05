@@ -13,7 +13,7 @@ export default function Task7() {
           viewport={{ once: false }}
           className="text-2xl"
         >
-          Hello world{' '}
+          Hello world
         </motion.h1>
       </div>
       <div className="h-screen bg-blue-500"></div>

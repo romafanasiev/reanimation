@@ -10,6 +10,7 @@ export default function Home() {
       <Link href="/task5">Task 5</Link>
       <Link href="/task6">Task 6</Link>
       <Link href="/task7">Task 7</Link>
+      <Link href="/task8">Task 8</Link>
     </div>
   );
 }
